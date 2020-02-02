@@ -1,0 +1,9 @@
+{
+    "operations": [
+        {
+            "processor": "lines",
+            "operation": "AddSuffix",
+            "args": ["HELLO", null]
+        }
+    ]
+}
