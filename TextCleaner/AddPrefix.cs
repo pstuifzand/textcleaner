@@ -22,15 +22,12 @@ namespace TextCleaner
 {
     public class AddPrefix : Operation
     {
+        public string Name => "Prepend Text";
+        public string[] ArgNames => new[] {"Prefix"};
+
         public OperationResult Process(string text, string[] args)
         {
             return new OperationResult(args[0] + text);
-        }
-
-        public string Name => "Prepend text";
-
-        public string[] ArgNames {
-            get { return new[] {"Prefix"}; }
         }
     }
 }

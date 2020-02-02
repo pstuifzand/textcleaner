@@ -9,8 +9,8 @@ TextCleaner processes text. It provides a real-time result of operations on your
 * Transform To Lowercase
 * Transform To Uppercase
 * Transform To Titlecase
-* Add Prefix
-* Add Suffix
+* Prepend Text
+* Append Text
 * Surround Text
 * Split and Format
 * Select Left Characters

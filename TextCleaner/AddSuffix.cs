@@ -29,9 +29,6 @@ namespace TextCleaner
         }
 
         public string Name => "Append Text";
-
-        public string[] ArgNames {
-            get { return new[] {"Suffix"}; }
-        }
+        public string[] ArgNames => new[] {"Suffix"};
     }
 }
