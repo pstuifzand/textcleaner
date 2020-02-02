@@ -20,13 +20,9 @@ namespace Abacus
 {
     public abstract class Expression
     {
-        public Expression()
+        public static ParseResult parse(string s, int start = 0)
         {
-        }
-
-		public static ParseResult parse(string s, int start = 0)
-        {
-            Parser p = new Parser(s, start);
+            var p = new Parser(s, start);
             return p.parse();
         }
 

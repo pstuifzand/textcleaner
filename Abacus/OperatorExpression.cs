@@ -14,37 +14,26 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using System;
 
 namespace Abacus
 {
     public class OperatorExpression : Expression
     {
-        private Expression a, b;
-
         private string op;
-
-        public Expression Left {
-            get { return a; }
-            set { a = value; }
-        }
-
-        public Expression Right {
-            get { return b; }
-            set { b = value; }
-        }
+        public Expression Left { get; }
+        public Expression Right { get; }
 
         public OperatorExpression(string op, Expression a, Expression b)
         {
             this.op = op;
-            this.a = a;
-            this.b = b;
+            Left = a;
+            Right = b;
         }
 
         public override ReturnValue Value(Binding binding)
         {
-            ReturnValue ra = a.Value(binding);
-            ReturnValue rb = b.Value(binding);
+            ReturnValue ra = Left.Value(binding);
+            ReturnValue rb = Right.Value(binding);
 
             if (!ra.Defined() || !rb.Defined()) {
                 return new ReturnValue();
@@ -52,17 +41,25 @@ namespace Abacus
 
             if (op == "+") {
                 return new ReturnValue(ra.Value() + rb.Value());
-            } else if (op == "-") {
-                return new ReturnValue(ra.Value() - rb.Value());
-            } else if (op == "*") {
-                return new ReturnValue(ra.Value() * rb.Value());
-            } else if (op == "/") {
-                return new ReturnValue(ra.Value() / rb.Value());
-            } else if (op == "//") {
-                return new ReturnValue((int)(ra.Value() / rb.Value()));
-            } else {
-                throw new ParserException("Unknown operator: " + op);
             }
+
+            if (op == "-") {
+                return new ReturnValue(ra.Value() - rb.Value());
+            }
+
+            if (op == "*") {
+                return new ReturnValue(ra.Value() * rb.Value());
+            }
+
+            if (op == "/") {
+                return new ReturnValue(ra.Value() / rb.Value());
+            }
+
+            if (op == "//") {
+                return new ReturnValue((int) (ra.Value() / rb.Value()));
+            }
+
+            throw new ParserException("Unknown operator: " + op);
         }
     }
 }

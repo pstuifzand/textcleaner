@@ -105,5 +105,18 @@ namespace AbacusTest
             ICollection<string> expected = Array.AsReadOnly(new string[] {"2", "4", "10", "4+"});
             Assert.AreEqual(expected, result);
         }
+
+        [Test()]
+        public void CalculateNoResult()
+        {
+            LineCalculator lc = new LineCalculator();
+
+            ICollection<string> result =
+                lc.CalculateLines(Array.AsReadOnly(new string[] {""}));
+            Assert.AreEqual(1, result.Count);
+
+            ICollection<string> expected = Array.AsReadOnly(new string[] {""});
+            Assert.AreEqual(expected, result);
+        }
     }
 }
