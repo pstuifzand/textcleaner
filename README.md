@@ -29,3 +29,13 @@ TextCleaner processes text. It provides a real-time result of operations on your
 * Select JSON
 * Calculate
 * …
+
+
+
+## License
+
+GPL3
+
+## Copyright
+
+Copyright (C) 2020 Peter Stuifzand
