@@ -18,7 +18,6 @@
  * along with Text Cleaner.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System.Data;
 using NUnit.Framework;
 using TextCleaner;
 
@@ -26,7 +25,7 @@ namespace TextCleanerTest
 {
     public class TrimTests
     {
-        private TextCleaner.Operation operation;
+        private Operation operation;
 
         [SetUp]
         public void Setup()
